@@ -1,10 +1,10 @@
 // CODE here for your Lambda Classes
 // PERSON CLASS
 class Person {
-    constructor(name, location, age){
-        this.name = name;
-        this.location = location;
-        this.age = age;
+    constructor(personObj){
+        this.name = personObj.name;
+        this.location = personObj.location;
+        this.age = personObj.age;
      
     }
 
@@ -16,11 +16,11 @@ class Person {
 
 // INSTRUCTOR CLASS
 class Instructor extends Person{
-    constructor(specialty, favLanguage, catchPhrase){
-        super();
-        this.specialty = specialty;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
+    constructor(instrctorObj){
+        super(instrctorObj);
+        this.specialty = instrctorObj.specialty;
+        this.favLanguage = instrctorObj.favLanguage;
+        this.catchPhrase = instrctorObj.catchPhrase;
     }
     demo(subject){
         console.log(`Today we are learning about ${subject} `);
@@ -31,15 +31,15 @@ class Instructor extends Person{
 }
 // STUDENT CLASS
 class Students extends Person{
-    constructor(previousBackground,className,favSubjects ){
-        super();
-        this.previousBackground = previousBackground;
-        this.className = className;
-        this.favSubjects = favSubjects;
+    constructor(studentObj){
+        super(studentObj);
+        this.previousBackground = studentObj.previousBackground;
+        this.className = studentObj.className;
+        this.favSubjects = studentObj.favSubjects;
     }
 
         listsSubjects(favSubjects){
-         this.favSubjects.forEach(function(listed){
+         favSubjects.forEach(function(listed){
                 console.log(listed);
             });
         }
@@ -55,21 +55,36 @@ class Students extends Person{
 
 // PROJECT MANAGER CLASS 
 class ProjectManager extends Instructor{
-    constructor(gradClassName, favInstructor){
-        super();
-            this.gradClassName = gradClassName;
-            this.favInstructor = favInstructor;
+    constructor(managerObj){
+        super(managerObj);
+            this.gradClassName = managerObj.gradClassName;
+            this.favInstructor = managerObj.favInstructor;
     }
     standUp(slack){
      console.log (`${this.name} announces to ${slack}, @channel standy times!`);
     }
     debugsCode(student, subject){
-console.log(`${this.name} debugs ${student.name}'s code on ${subject.name}`);
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject.name}`);
     }
 }
 
 
-// Person Test
 
+const instructor = new Instructor({
+    'name': 'instructor name',
+});
+
+const student = new Students({
+    'name': 'Students Name',
+    'favSubjects': ['listSubjects', 'METHOD', 'CALLED']
+})
+ const projectManager = new ProjectManager({
+    'name': 'Manager Name'
+   
+})
+const functionsClass = {
+    'name': 'Functions'
+}
+console.log(projectManager.debugsCode(student, functionsClass));
 
 
