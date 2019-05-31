@@ -60,8 +60,8 @@ class ProjectManager extends Instructor{
             this.gradClassName = managerObj.gradClassName;
             this.favInstructor = managerObj.favInstructor;
     }
-    standUp(slack){
-     console.log (`${this.name} announces to ${this}, @channel standy times!`);
+    standUp(student, slack){
+     console.log (`${this.name} announces to ${slack.name}, @channel standy times!`);
     }
   debugsCode(student, subject){  
     console.log(`${this.name} debugs ${student.name}'s code on ${subject.name}`);
@@ -85,18 +85,22 @@ const student = new Students({
  const projectManager = new ProjectManager({
     'name': 'Manager Name',
 
+
    
 })
 const functionsClass = {
     'name': 'Functions',
   
 }
+const slack ={
+    'name': "WebPt7"
+}
 
 
 console.log(person.speak(student, location))
 console.log(projectManager.debugsCode(student, functionsClass));
 console.log(student.PRAssignment(student, functionsClass));
-// console.log(projectManager.standUp(student, slack));
 student.listsSubjects();
+console.log(projectManager.standUp(projectManager, slack));
 
 
