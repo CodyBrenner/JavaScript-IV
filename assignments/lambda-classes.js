@@ -9,7 +9,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
 
@@ -23,13 +23,13 @@ class Instructor extends Person {
         this.catchPhrase = instrctorObj.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject.name} `);
+        return `Today we are learning about ${subject.name} `;
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject.name}`);
+        return `${student.name} receives a perfect score on ${subject.name}`;
     }
     gradeCheck(student, subject){
-        console.log(`${student.name} graduated with an ${student.grade} in ${subject.name}`)
+        return `${student.name} graduated with an ${student.grade} in ${subject.name}`
     }
 }
 // STUDENT CLASS
@@ -42,16 +42,16 @@ class Students extends Person {
     }
     listsSubjects(favSubjects) {
         this.favSubjects.forEach((subjectListed) => {
-            console.log(subjectListed);
+            console.log (subjectListed);
         });
     }
 
 
     PRAssignment(student, subject) {
-        console.log(`${student.name} has submitted a PR for ${subject.name}`);
+       return `${student.name} has submitted a PR for ${subject.name}`;
     }
     sprintChallenge(student, subject) {
-        console.log(`${student.name} has begun spring challenge on ${subject.name}`);
+        return `${student.name} has begun spring challenge on ${subject.name}`;
     }
 }
 
@@ -63,10 +63,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = managerObj.favInstructor;
     }
     standUp(student, slack) {
-        console.log(`${this.name} announces to ${slack.name}, @channel standy times!`);
+       return `${this.name} announces to ${slack.name}, @channel standy times!`;
     }
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject.name}`);
+       return `${this.name} debugs ${student.name}'s code on ${subject.name}`;
     }
 }
 
