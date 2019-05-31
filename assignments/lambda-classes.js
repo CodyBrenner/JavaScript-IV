@@ -70,21 +70,25 @@ class ProjectManager extends Instructor {
 const person = new Person({
     'name': 'Person Name',
     'location': 'New York',
+    'favInstructor': 'Instructor Name'
 })
 
 const instructor = new Instructor({
     'name': 'instructor name',
+    'location': 'New York',
+ 
 });
 
 const student = new Students({
     'name': 'Students Name',
-
-    'favSubjects': ['JS', 'REACT', 'HTML']
+    'favSubjects': ['JS', 'REACT', 'HTML'],
+    'location': 'New York',
+    'favInstructor': 'Instructor Name'
 })
 const projectManager = new ProjectManager({
     'name': 'Manager Name',
-
-
+    'location': 'New York',
+    'favInstructor': 'Instructor Name'
 
 })
 const functionsClass = {
@@ -95,7 +99,7 @@ const slack = {
     'name': "WebPt7"
 }
 
-
+// WORKS TEST <----
 console.log(person.speak(student, location));
 console.log(instructor.demo(functionsClass));
 console.log(instructor.grade(student, functionsClass));
