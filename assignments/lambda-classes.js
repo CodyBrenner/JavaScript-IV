@@ -39,17 +39,17 @@ class Students extends Person{
     }
 
         listsSubjects(favSubjects){
-         favSubjects.forEach(function(listed){
-                console.log(listed);
+            this.favSubjects.forEach((subjectListed) => {
+                console.log(subjectListed);
             });
         }
 
     
         PRAssignment(student, subject){
-            console.log(`${student} has submitted a PR for ${subject}`);
+            console.log(`${student.name} has submitted a PR for ${subject.name}`);
         }
         sprintChallenge(student, subject){
-            console.log(`${student} has begun spring challenge on ${subject}`);
+            console.log(`${student.name} has begun spring challenge on ${subject.name}`);
         }
 }
 
@@ -61,14 +61,17 @@ class ProjectManager extends Instructor{
             this.favInstructor = managerObj.favInstructor;
     }
     standUp(slack){
-     console.log (`${this.name} announces to ${slack}, @channel standy times!`);
+     console.log (`${this.name} announces to ${this}, @channel standy times!`);
     }
-    debugsCode(student, subject){
+  debugsCode(student, subject){  
     console.log(`${this.name} debugs ${student.name}'s code on ${subject.name}`);
     }
 }
 
-
+const person = new Person({
+    'name': 'Person Name',
+    'location': 'New York',
+})
 
 const instructor = new Instructor({
     'name': 'instructor name',
@@ -76,15 +79,24 @@ const instructor = new Instructor({
 
 const student = new Students({
     'name': 'Students Name',
-    'favSubjects': ['listSubjects', 'METHOD', 'CALLED']
+    
+    'favSubjects': ['JS', 'REACT', 'HTML']
 })
  const projectManager = new ProjectManager({
-    'name': 'Manager Name'
+    'name': 'Manager Name',
+
    
 })
 const functionsClass = {
-    'name': 'Functions'
+    'name': 'Functions',
+  
 }
+
+
+console.log(person.speak(student, location))
 console.log(projectManager.debugsCode(student, functionsClass));
+console.log(student.PRAssignment(student, functionsClass));
+// console.log(projectManager.standUp(student, slack));
+student.listsSubjects();
 
 
