@@ -28,6 +28,9 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject.name}`);
     }
+    gradeCheck(student, subject){
+        console.log(`${student.name} graduated with an ${student.grade} in ${subject.name}`)
+    }
 }
 // STUDENT CLASS
 class Students extends Person {
@@ -76,6 +79,7 @@ const person = new Person({
 const instructor = new Instructor({
     'name': 'instructor name',
     'location': 'New York',
+    
  
 });
 
@@ -83,12 +87,14 @@ const student = new Students({
     'name': 'Students Name',
     'favSubjects': ['JS', 'REACT', 'HTML'],
     'location': 'New York',
-    'favInstructor': 'Instructor Name'
+    'favInstructor': 'Instructor Name',
+    'grade': '80'
 })
 const projectManager = new ProjectManager({
     'name': 'Manager Name',
     'location': 'New York',
-    'favInstructor': 'Instructor Name'
+    'favInstructor': 'Instructor Name',
+  
 
 })
 const functionsClass = {
@@ -96,7 +102,8 @@ const functionsClass = {
 
 }
 const slack = {
-    'name': "WebPt7"
+    'name': "WebPt7",
+   
 }
 
 // WORKS TEST <----
@@ -107,3 +114,4 @@ console.log(projectManager.debugsCode(student, functionsClass));
 console.log(student.PRAssignment(student, functionsClass));
 student.listsSubjects();
 console.log(projectManager.standUp(projectManager, slack));
+console.log(instructor.gradeCheck(student, functionsClass));
